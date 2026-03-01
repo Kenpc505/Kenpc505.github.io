@@ -3,72 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenneth Pérez Camacho | Portfolio</title>
+    <title>Kenneth Pérez Camacho | Portfolio Hub</title>
+    
     <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/brands.css">
 </head>
 <body>
 
     <nav>
         <div class="logo">Kenpc505</div>
         <ul>
-            <li><a href="#about">Education</a></li>
+            <li><a href="#bio">About</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#links">Contact</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <h1>Hi, my name is <span class="highlight">Kenneth Pérez Camacho</span>.</h1>
-        <p>Junior Developer & Game Designer | Aspiring Cybersecurity Specialist</p>
-        <p class="subtext">Currently graduating from Universidad Interamericana de Puerto Rico.</p>
+        <h1>Kenneth Pérez Camacho</h1>
+        <p class="highlight">Game Developer | Producer | Cybersecurity Student</p>
     </header>
 
-    <section id="about">
-        <h2>Education</h2>
-        <div class="education-container">
-            <div class="edu-card">
-                <h3>Universidad Interamericana de Puerto Rico</h3>
-                <p class="degree">B.S. in Video Game Design & Development</p>
-                <p class="minor">Minor in Cybersecurity</p>
-                <p class="grad-date">Expected Graduation: 2026</p>
-                
-                <ul class="coursework">
-                    <li><strong>Core:</strong> Logical Programming, Gameplay/UI Designer and Particle Animation </li>
-                  <!--<li><strong>Security:</strong> Network Security, Data Encryption</li>--> 
-                </ul>
+    <section id="bio">
+        <div class="bio-container">
+            <div class="bio-image">
+                <img src="images/headshot.jpg" alt="Kenneth Pérez Camacho Headshot">
+            </div>
+            <div class="bio-text">
+                <h2>About Me</h2>
+                <p>
+                    I am a Developer and Game Designer specializing in the intersection of technical logic and creative execution. 
+                </p>
+                <p>
+                    My work spans from high-level production at <strong>Schrödinger Studio</strong> to deep-level C++ systems programming. I focus on building immersive experiences backed by secure, high-performance code.
+                </p>
+
+                <div class="skills-grid">
+                    <div class="skill-item"><img src="images/icons/cpp.svg" alt="C++"><span>C++</span></div>
+                    <div class="skill-item"><img src="images/icons/csharp.svg" alt="C#"><span>C#</span></div>
+                    <div class="skill-item"><img src="images/icons/unity.svg" alt="Unity"><span>Unity</span></div>
+                    <div class="skill-item"><img src="images/icons/unreal.svg" alt="Unreal Engine"><span>Unreal</span></div>
+                    <div class="skill-item"><img src="images/icons/git.svg" alt="Git"><span>Git</span></div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects">
         <h2>Featured Work</h2>
-        <div class="project-grid">
+        <div class="project-list">
             
-            <article class="card">
-                <span class="tech-tag">C++ / Database / Security</span>
-                <h3>SimpleMDB</h3>
-                <p>A lightweight database engine designed for performance. Implements core CRUD operations and structured data management.</p>
-                <a href="https://github.com/Kenpc505/SimpleMDB" target="_blank" rel="noopener" class="btn">Source Code →</a>
+            <article class="project-row">
+                <div class="project-image">
+                    <video autoplay loop muted playsinline poster="images/simplemdb-poster.jpg">
+                        <source src="videos/simplemdb-demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="project-info">
+                    <span class="tech-tag">C++ / Security</span>
+                    <h3>SimpleMDB</h3>
+                    <p class="project-meta"><strong>Role:</strong> Lead Developer | <strong>Date:</strong> Oct 2025 – Dec 2025</p>
+                    <p>A lightweight database engine focusing on memory safety and efficient data management. Built to handle structured records with custom indexing.</p>
+                    <a href="https://github.com/Kenpc505/SimpleMDB" target="_blank" class="btn">View Source →</a>
+                </div>
             </article>
-            
+
+            <article class="project-row">
+                <div class="project-image">
+                    <img src="images/vgg3-project.png" alt="Graphics 3 Project">
+                </div>
+                <div class="project-info">
+                    <span class="tech-tag">Unity / C# / 3D Design</span>
+                    <h3>Advanced Graphics & AI Systems</h3>
+                    <p class="project-meta"><strong>Role:</strong> Technical Generalist | <strong>Date:</strong> March 2024 – June 2024</p>
+                    <ul class="project-features">
+                        <li><strong>VFX:</strong> Procedural fire and electricity particle effects.</li>
+                        <li><strong>AI:</strong> Programmed enemy behaviors and state machines.</li>
+                        <li><strong>Assets:</strong> 3D modeling, texturing, and cinematic creation.</li>
+                        <li><strong>UI:</strong> Full interface programming and logic.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="project-row">
+                <div class="project-image">
+                    <img src="images/schrodinger-studio.png" alt="Schrödinger Studio">
+                </div>
+                <div class="project-info">
+                    <span class="tech-tag">Indie Dev / Management</span>
+                    <h3>Platformer Project (Schrödinger Studio)</h3>
+                    <p class="project-meta"><strong>Role:</strong> Level & Audio Designer / Producer | <strong>Date:</strong> Jan 2026 – June 2026 (Expected)</p>
+                    <p>Collaborating with an indie group focusing on level flow, immersive audio soundscapes, and managing production pipelines.</p>
+                </div>
+            </article>
+
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Get In Touch</h2>
-        <p class="subtext">I am currently looking for internship and junior developer opportunities!</p>
-        <div class="contact-container">
-            <a href="mailto:kpcamacho5@gmail.com" class="contact-item">
-                <span>✉️</span> kpcamacho5@gmail.com
+    <section id="links">
+        <h2>Connect With Me</h2>
+        <div class="link-container">
+            <a class="button button-resume" href="Kenneth_Perez_Resume.pdf" download>
+                <img class="icon" src="images/icons/email.svg" alt="Resume"> Download Resume
             </a>
-            <a href="https://www.linkedin.com/in/kenneth-p%C3%A9rez-camacho-754b19230" target="_blank" rel="noopener" class="contact-item">
-                <span>🔗</span> LinkedIn Profile
+            <a class="button button-linkedin" href="https://www.linkedin.com/in/kenneth-p%C3%A9rez-camacho-754b19230" target="_blank">
+                <img class="icon" src="images/icons/linkedin.svg" alt="LinkedIn"> LinkedIn Profile
             </a>
+            <a class="button button-github" href="https://github.com/Kenpc505" target="_blank">
+                <img class="icon" src="images/icons/github.svg" alt="GitHub"> GitHub Repository
+            </a>
+            <div class="qr-area">
+                <p>Scan for Mobile Portfolio</p>
+                <img src="images/portfolio-qr.png" alt="QR Code" class="qr-image">
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Kenneth Pérez Camacho | Built with HTML & CSS</p>
+        <p>© 2026 Kenneth Pérez Camacho</p>
     </footer>
 
 </body>

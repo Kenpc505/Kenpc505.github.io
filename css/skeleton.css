@@ -1,0 +1,29 @@
+.button {
+	display: inline-block;
+	width: 100%;
+	padding: 14px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-radius: 50px;
+	/* Pill shape like Linktree */
+	transition: 0.3s;
+	cursor: pointer;
+	border: none;
+}
+
+.button:hover {
+	transform: scale(1.03);
+	filter: brightness(1.1);
+}
+
+.icon {
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	margin-right: 8px;
+	filter: brightness(0) invert(1);
+	/* Makes black icons white */
+}
