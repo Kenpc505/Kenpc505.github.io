@@ -6,7 +6,6 @@
     <title>Kenneth Pérez Camacho | Portfolio Hub</title>
     
     <link rel="stylesheet" href="style.css">
-    
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/brands.css">
 </head>
@@ -23,7 +22,7 @@
 
     <header class="hero">
         <h1>Kenneth Pérez Camacho</h1>
-        <p class="highlight">Game Developer | Producer | Cybersecurity Student</p>
+        <p class="highlight">Junior Game Developer | Producer | Cybersecurity Student</p>
     </header>
 
     <section id="bio">
@@ -32,13 +31,10 @@
                 <img src="images/headshot.jpg" alt="Kenneth Pérez Camacho Headshot">
             </div>
             <div class="bio-text">
-                <h2>About Me</h2>
-                <p>
-                    I am a Developer and Game Designer specializing in the intersection of technical logic and creative execution. 
-                </p>
-                <p>
-                    My work spans from high-level production at <strong>Schrödinger Studio</strong> to deep-level C++ systems programming. I focus on building immersive experiences backed by secure, high-performance code.
-                </p>
+                <h2>About Me:</h2>
+                <p>I am currently a Junior Developer and Game Designer that specializes in the intersection of technical logic and creative execution.</p>
+                <p>As of now I am working on various projects such as: A physical arcade machine so that university students can showcase their works, an indie platforming game spearheaded by Schrödinger Studio, and my solo dev project being an indie roguelite game.</p>
+                <p>My work spans from production at <strong>Schrödinger Studio</strong> to deep-level C++ systems programming. I'm currently focusing on building immersive experiences backed by secure, high-performance code.</p>
 
                 <div class="skills-grid">
                     <div class="skill-item"><img src="images/icons/cpp.svg" alt="C++"><span>C++</span></div>
@@ -52,41 +48,47 @@
     </section>
 
     <section id="projects">
-        <h2>Featured Work</h2>
+        <h2>Featured Work:</h2>
         <div class="project-list">
             
             <article class="project-row">
-                <div class="project-image">
-                    <video autoplay loop muted playsinline poster="images/simplemdb-poster.jpg">
+                <div class="project-image loading-container">
+                    <div class="spinner"></div>
+                    <video autoplay loop muted playsinline poster="images/simplemdb-poster.jpg" onloadeddata="this.parentElement.classList.remove('loading-container')">
                         <source src="videos/simplemdb-demo.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
                     </video>
                 </div>
                 <div class="project-info">
-                    <span class="tech-tag">C++ / Security</span>
-                    <h3>SimpleMDB</h3>
-                    <p class="project-meta"><strong>Role:</strong> Lead Developer | <strong>Date:</strong> Oct 2025 – Dec 2025</p>
-                    <p>A lightweight database engine focusing on memory safety and efficient data management. Built to handle structured records with custom indexing.</p>
+                    <span class="tech-tag">HTML and C# / Security</span>
+                    <h3>Simple Movie Database</h3>
+                    <p class="project-meta"><strong>Role:</strong> Lead Developer | <strong>Date:</strong> Oct 2025 - December 2025</p>
+                    <p>A lightweight database engine focusing on memory safety and efficient data management, this is achieved via vs code and db browser.</p>
+                        <p> The Project allows as a website that can store Movies as well as their details; it also allows the deletion and editing of said movies.</p>
                     <a href="https://github.com/Kenpc505/SimpleMDB" target="_blank" class="btn">View Source →</a>
                 </div>
             </article>
 
+
             <article class="project-row">
-                <div class="project-image">
-                    <img src="images/vgg3-project.png" alt="Graphics 3 Project">
+                <div class="project-image loading-container">
+                    <div class="spinner"></div>
+                    <video autoplay loop muted playsinline poster="images/vgg3-poster.jpg" onloadeddata="this.parentElement.classList.remove('loading-container')">
+                        <source src="videos/vgg3-demo.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="project-info">
-                    <span class="tech-tag">Unity / C# / 3D Design</span>
+                    <span class="tech-tag">Unreal Engine 5.2 / C++ and Blueprints / 3D Design / Niagara Particle System</span>
                     <h3>Advanced Graphics & AI Systems</h3>
-                    <p class="project-meta"><strong>Role:</strong> Technical Generalist | <strong>Date:</strong> March 2024 – June 2024</p>
+                    <p class="project-meta"><strong>Role:</strong> Technical Generalist | <strong>Date:</strong> March 2024 - June 2024</p>
                     <ul class="project-features">
                         <li><strong>VFX:</strong> Procedural fire and electricity particle effects.</li>
                         <li><strong>AI:</strong> Programmed enemy behaviors and state machines.</li>
-                        <li><strong>Assets:</strong> 3D modeling, texturing, and cinematic creation.</li>
-                        <li><strong>UI:</strong> Full interface programming and logic.</li>
+                        <li><strong>UI:</strong> Programmed UI functionality.</li>
+                        <li><strong>Assets:</strong> 3D modeling, texturing, rigging, uv mapping, cinematic creation, and UI design.</li>
                     </ul>
                 </div>
             </article>
+
 
             <article class="project-row">
                 <div class="project-image">
@@ -94,9 +96,10 @@
                 </div>
                 <div class="project-info">
                     <span class="tech-tag">Indie Dev / Management</span>
-                    <h3>Platformer Project (Schrödinger Studio)</h3>
-                    <p class="project-meta"><strong>Role:</strong> Level & Audio Designer / Producer | <strong>Date:</strong> Jan 2026 – June 2026 (Expected)</p>
-                    <p>Collaborating with an indie group focusing on level flow, immersive audio soundscapes, and managing production pipelines.</p>
+                    <h3>Memories of Ladein by Schrödinger Studio (Unannounced Platformer)</h3>
+                    <p class="project-meta"><strong>Role:</strong> Level & Audio Designer / Producer / Programmer</p>
+                    <p>Collaborating with an indie group focusing on level flow and audio design.</p>
+                    <p>Additionally working as a production manager in the indie group.</p>
                 </div>
             </article>
 
@@ -104,7 +107,7 @@
     </section>
 
     <section id="links">
-        <h2>Connect With Me</h2>
+        <h2>Connect With Me!</h2>
         <div class="link-container">
             <a class="button button-resume" href="Kenneth_Perez_Resume.pdf" download>
                 <img class="icon" src="images/icons/email.svg" alt="Resume"> Download Resume
@@ -115,10 +118,6 @@
             <a class="button button-github" href="https://github.com/Kenpc505" target="_blank">
                 <img class="icon" src="images/icons/github.svg" alt="GitHub"> GitHub Repository
             </a>
-            <div class="qr-area">
-                <p>Scan for Mobile Portfolio</p>
-                <img src="images/portfolio-qr.png" alt="QR Code" class="qr-image">
-            </div>
         </div>
     </section>
 
