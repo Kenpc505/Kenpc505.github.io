@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="css/skeleton.css">
     <link rel="stylesheet" href="css/brands.css">
 </head>
-<body>
+<body id="top">
 
     <nav>
-        <div class="logo">Kenpc505</div>
+        <div class="logo">
+            <a href="#top">Kenpc505</a>
+        </div>
         <ul>
             <li><a href="#bio">About</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -22,19 +24,19 @@
 
     <header class="hero">
         <h1>Kenneth Pérez Camacho</h1>
-        <p class="highlight">Junior Game Developer | Producer | Cybersecurity Student</p>
+        <p class="highlight">Game Developer | Producer | Cybersecurity Student</p>
     </header>
 
     <section id="bio">
         <div class="bio-container">
             <div class="bio-image">
-                <img src="images/headshot.jpg" alt="Kenneth Pérez Camacho Headshot">
+                <img src="images/headshot.jpg" alt="Kenneth Pérez Camacho">
             </div>
             <div class="bio-text">
                 <h2>About Me:</h2>
-                <p>I am currently a Junior Developer and Game Designer that specializes in the intersection of technical logic and creative execution.</p>
-                <p>As of now I am working on various projects such as: A physical arcade machine so that university students can showcase their works, an indie platforming game spearheaded by Schrödinger Studio, and my solo dev project being an indie roguelite game.</p>
-                <p>My work spans from production at <strong>Schrödinger Studio</strong> to deep-level C++ systems programming. I'm currently focusing on building immersive experiences backed by secure, high-performance code.</p>
+                <p>Hello World! My name is Kenneth Pérez Camacho, born and raised in Puerto Rico.</p>
+                <p>I'm a Junior Game Developer as well as a Cybersecurity Student currently enrolled in the Interamerican University of Puerto Rico.</p>
+                <p>My work spans from production at <strong>Schrödinger Studio</strong> to deep-level C++ systems programming, as well as designing technical audio and level experiences.</p>
 
                 <div class="skills-grid">
                     <div class="skill-item"><img src="images/icons/cpp.svg" alt="C++"><span>C++</span></div>
@@ -51,7 +53,20 @@
         <h2>Featured Work:</h2>
         <div class="project-list">
             
-            <article class="project-row">
+ <article class="project-row">
+                <div class="project-image">
+                    <img src="images/schrodinger-studio.png" alt="Schrödinger Studio">
+                </div>
+                <div class="project-info">
+                    <span class="tech-tag">Indie Dev / Management</span>
+                    <h3>Platforming Project by Schrödinger Studio (Unnanounced)</h3>
+                    <p class="role-badge">Level & Audio Designer / Producer / Programmer</p>
+                    <div class="tools-section"><strong>Tools:</strong> Unreal Engine 5.6.1, FL Studio 2026, Adobe Audition</div>
+                    <p>Working on an Indie Developer Team "Schrödinger Studio" in creating a difficulty based platforming game. I specialize in audio creation and implementation while also working on level designing.</p>
+                </div>
+            </article>
+
+               <article class="project-row">
                 <div class="project-image loading-container">
                     <div class="spinner"></div>
                     <video autoplay loop muted playsinline poster="images/simplemdb-poster.jpg" onloadeddata="this.parentElement.classList.remove('loading-container')">
@@ -59,15 +74,14 @@
                     </video>
                 </div>
                 <div class="project-info">
-                    <span class="tech-tag">HTML and C# / Security</span>
+                    <span class="tech-tag">Database Management</span>
                     <h3>Simple Movie Database</h3>
-                    <p class="project-meta"><strong>Role:</strong> Lead Developer | <strong>Date:</strong> Oct 2025 - December 2025</p>
-                    <p>A lightweight database engine focusing on memory safety and efficient data management, this is achieved via vs code and db browser.</p>
-                        <p> The Project allows as a website that can store Movies as well as their details; it also allows the deletion and editing of said movies.</p>
+                    <p class="role-badge">Lead Systems Developer <span class="date-tag">| Oct 2025</span></p>
+                    <div class="tools-section"><strong>Tools:</strong> HTML, C#, SQL, MySQLWorkbench, Visual Studio Code</div>
+                    <p>Designed a lightweight database engine that focused on memory managent, specifically using movies as a benchmark. The user has the ability to add, remove and edit movie entries which are then registered in the SQL database.</p>
                     <a href="https://github.com/Kenpc505/SimpleMDB" target="_blank" class="btn">View Source →</a>
                 </div>
             </article>
-
 
             <article class="project-row">
                 <div class="project-image loading-container">
@@ -77,29 +91,16 @@
                     </video>
                 </div>
                 <div class="project-info">
-                    <span class="tech-tag">Unreal Engine 5.2 / C++ and Blueprints / 3D Design / Niagara Particle System</span>
+                    <span class="tech-tag"> C++ / 3D Design / Particle Creation</span>
                     <h3>Advanced Graphics & AI Systems</h3>
-                    <p class="project-meta"><strong>Role:</strong> Technical Generalist | <strong>Date:</strong> March 2024 - June 2024</p>
+                    <p class="role-badge">Technical Specialist <span class="date-tag">| March 2024</span></p>
+                    <div class="tools-section"><strong>Tools:</strong> Unreal Engine 5.2, Blender. Niagara Particle System</div>
                     <ul class="project-features">
-                        <li><strong>VFX:</strong> Procedural fire and electricity particle effects.</li>
-                        <li><strong>AI:</strong> Programmed enemy behaviors and state machines.</li>
-                        <li><strong>UI:</strong> Programmed UI functionality.</li>
-                        <li><strong>Assets:</strong> 3D modeling, texturing, rigging, uv mapping, cinematic creation, and UI design.</li>
+                        <li><strong>VFX:</strong> Procedural fire and electricity effects.</li>
+                        <li><strong>UI:</strong> Created UI Designs and programmed functionality.</li>
+                        <li><strong>AI:</strong> Programmed enemy behaviors to mimic attack and roaming patterns, also worked on state machines.</li>
+                        <li><strong>3D Modeling:</strong> Worked on modeling several 3D objects, as well as multiple textures for different objects made.</li>
                     </ul>
-                </div>
-            </article>
-
-
-            <article class="project-row">
-                <div class="project-image">
-                    <img src="images/schrodinger-studio.png" alt="Schrödinger Studio">
-                </div>
-                <div class="project-info">
-                    <span class="tech-tag">Indie Dev / Management</span>
-                    <h3>Memories of Ladein by Schrödinger Studio (Unannounced Platformer)</h3>
-                    <p class="project-meta"><strong>Role:</strong> Level & Audio Designer / Producer / Programmer</p>
-                    <p>Collaborating with an indie group focusing on level flow and audio design.</p>
-                    <p>Additionally working as a production manager in the indie group.</p>
                 </div>
             </article>
 
@@ -109,21 +110,39 @@
     <section id="links">
         <h2>Connect With Me!</h2>
         <div class="link-container">
-            <a class="button button-resume" href="Kenneth_Perez_Resume.pdf" download>
-                <img class="icon" src="images/icons/email.svg" alt="Resume"> Download Resume
-            </a>
-            <a class="button button-linkedin" href="https://www.linkedin.com/in/kenneth-p%C3%A9rez-camacho-754b19230" target="_blank">
-                <img class="icon" src="images/icons/linkedin.svg" alt="LinkedIn"> LinkedIn Profile
-            </a>
-            <a class="button button-github" href="https://github.com/Kenpc505" target="_blank">
-                <img class="icon" src="images/icons/github.svg" alt="GitHub"> GitHub Repository
-            </a>
+            <div class="button-stack">
+                <a class="button button-resume" href="Kenneth_Perez_Resume.pdf" download>
+                    <img class="icon" src="images/icons/email.svg" alt=""> Download Resume
+                </a>
+                <a class="button button-linkedin" href="https://www.linkedin.com/in/kenneth-p%C3%A9rez-camacho-754b19230" target="_blank">
+                    <img class="icon" src="images/icons/linkedin.svg" alt=""> LinkedIn Profile
+                </a>
+                <a class="button button-github" href="https://github.com/Kenpc505" target="_blank">
+                    <img class="icon" src="images/icons/github.svg" alt=""> GitHub Repository
+                </a>
+            </div>
         </div>
     </section>
 
     <footer>
         <p>© 2026 Kenneth Pérez Camacho</p>
     </footer>
+
+    <button onclick="scrollToTop()" id="backToTop" title="Go to top">↑</button>
+
+    <script>
+        const mybutton = document.getElementById("backToTop");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        };
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
