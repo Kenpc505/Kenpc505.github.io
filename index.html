@@ -3,148 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenneth Pérez Camacho | Portfolio Hub</title>
-    
+    <title>Kenneth Pérez Camacho | Portfolio</title>
+    <script>
+        (function() {
+            const palettes = {
+                'default': { bg: '#0b1120', accent: '#60a5fa' },
+                'emerald': { bg: '#022c22', accent: '#10b981' },
+                'ruby': { bg: '#1c0a0a', accent: '#ef4444' },
+                'gold': { bg: '#1a160d', accent: '#fbbf24' },
+                'violet': { bg: '#1e1b4b', accent: '#a78bfa' }
+            };
+            window.applyTheme = function(theme) {
+                const p = palettes[theme] || palettes['default'];
+                document.documentElement.style.setProperty('--bg-color', p.bg);
+                document.documentElement.style.setProperty('--accent', p.accent);
+                localStorage.setItem('selectedTheme', theme);
+                document.querySelectorAll('a').forEach(link => {
+                    const url = new URL(link.href, window.location.href);
+                    if (url.origin === window.location.origin) {
+                        url.searchParams.set('theme', theme);
+                        link.href = url.toString();
+                    }
+                });
+            };
+            const params = new URLSearchParams(window.location.search);
+            const activeTheme = params.get('theme') || localStorage.getItem('selectedTheme') || 'default';
+            window.addEventListener('DOMContentLoaded', () => applyTheme(activeTheme));
+        })();
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/brands.css">
 </head>
-<body id="top">
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
 
     <nav>
-        <div class="logo">
-            <a href="#top">Kenpc505</a>
+        <div class="logo"><a href="index.html" class="btn-nav">Kenpc505</a></div>
+        <div class="nav-right" style="display: flex; align-items: center; gap: 1.5rem;">
+            <div class="theme-switch-wrapper">
+                <button id="theme-btn" class="btn-nav" style="color: var(--accent); background: transparent; border: 1px solid rgba(255,255,255,0.1);"><i class="fas fa-palette"></i></button>
+                <div id="theme-menu" class="theme-menu">
+                    <button onclick="applyTheme('default')">Deep Sea</button>
+                    <button onclick="applyTheme('emerald')">Matrix</button>
+                    <button onclick="applyTheme('ruby')">Crimson</button>
+                    <button onclick="applyTheme('gold')">Luxury</button>
+                    <button onclick="applyTheme('violet')">Cyber</button>
+                </div>
+            </div>
+            <div class="social-icons" style="display: flex; gap: 1rem;">
+                <a href="https://github.com/Kenpc505" target="_blank" style="color: var(--text-secondary);"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kenneth-p%C3%A9rez-camacho-754b19230" target="_blank" style="color: var(--text-secondary);"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <ul class="nav-links" style="display: flex; list-style: none; gap: 0.5rem; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem;">
+                <li><a href="projects.html" class="btn-nav">Projects</a></li>
+                <li><a href="resume.html" class="btn-nav">Resume</a></li>
+            </ul>
         </div>
-        <ul>
-            <li><a href="#bio">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#links">Contact</a></li>
-        </ul>
     </nav>
 
-    <header class="hero">
-        <h1>Kenneth Pérez Camacho</h1>
-        <p class="highlight">Game Developer | Producer | Cybersecurity Student</p>
+    <header class="hero-banner">
+        <div class="banner-image"><img src="images/banner.jpg" alt="Hero Banner"></div>
+        <div class="hero-content" style="text-align: center;">
+            <h1 style="font-size: 3.5rem;">Kenneth Pérez Camacho</h1>
+            <p style="color: var(--accent); font-weight: bold; font-size: 1.2rem;">Game Developer | Technical Designer | Indie</p>
+        </div>
     </header>
 
-    <section id="bio">
-        <div class="bio-container">
-            <div class="bio-image">
-                <img src="images/headshot.jpg" alt="Kenneth Pérez Camacho">
-            </div>
-            <div class="bio-text">
-                <h2>About Me:</h2>
-                <p>Hello World! My name is Kenneth Pérez Camacho, born and raised in Puerto Rico.</p>
-                <p>I am currently a Junior Developer and Game Designer that specializes in the intersection of technical logic and creative execution, my work spans from production at <strong>Schrödinger Studio</strong> to deep-level C++ systems programming, as well as designing technical audio and level experiences.</p> 
-                <p>As of now I am working on various projects such as a physical arcade machine where university students can showcase their works, an indie platforming game spearheaded by Schrödinger Studio, and my solo dev project being an indie roguelite game.</p>
-                
-                
-
-                <div class="skills-grid">
-                    <div class="skill-item"><img src="images/icons/cpp.svg" alt="C++"><span>C++</span></div>
-                    <div class="skill-item"><img src="images/icons/csharp.svg" alt="C#"><span>C#</span></div>
-                    <div class="skill-item"><img src="images/icons/unity.svg" alt="Unity"><span>Unity</span></div>
-                    <div class="skill-item"><img src="images/icons/unreal.svg" alt="Unreal Engine"><span>Unreal</span></div>
-                    <div class="skill-item"><img src="images/icons/git.svg" alt="Git"><span>Git</span></div>
-                </div>
-            </div>
+    <section class="about-me-container" style="max-width: 900px; margin: 4rem auto; display: flex; align-items: center; gap: 3rem; padding: 0 2rem;">
+        <div class="profile-pic"><img src="images/pfp.jpg" alt="Profile Picture" style="width: 180px; height: 180px; border-radius: 50%; border: 4px solid var(--accent); object-fit: cover; display: block;"></div>
+        <div class="about-text">
+            <h2 style="color: var(--accent); margin-bottom: 1rem;">About Me</h2>
+            <p style="color: var(--text-secondary); line-height: 1.6;">Hello World! My name is Kenneth Pérez Camacho, born and raised in Puerto Rico.
+I am currently a Junior Developer and Game Designer that specializes in the intersection of technical logic and creative execution,
+my work spans from production at Schrödinger Studio to deep-level C++ systems programming, as well as designing technical audio and level experiences.
+As of now I am working on various projects such as a physical arcade machine where university students can showcase their works,
+an indie platforming game spearheaded by Schrödinger Studio, and my solo dev project being an indie roguelite game.</p>
         </div>
     </section>
 
-    <section id="projects">
-        <h2>Featured Work:</h2>
-        <div class="project-list">
-            
- <article class="project-row">
-                <div class="project-image">
-                    <img src="images/schrodinger-studio.png" alt="Schrödinger Studio">
-                </div>
-                <div class="project-info">
-                    <span class="tech-tag">Indie Dev / Management</span>
-                    <h3>Platforming Project by Schrödinger Studio (Unnanounced)</h3>
-                    <p class="role-badge">Level & Audio Designer / Producer / Programmer</p>
-                    <div class="tools-section"><strong>Tools:</strong> Unreal Engine 5.6.1, FL Studio 2026, Adobe Audition</div>
-                    <p>Working on an Indie Developer Team "Schrödinger Studio" in creating a difficulty based platforming game. I specialize in audio creation and implementation while also working on level designing.</p>
-                </div>
-            </article>
-
-               <article class="project-row">
-                <div class="project-image loading-container">
-                    <div class="spinner"></div>
-                    <video autoplay loop muted playsinline poster="images/simplemdb-poster.jpg" onloadeddata="this.parentElement.classList.remove('loading-container')">
-                        <source src="videos/simplemdb-demo.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="project-info">
-                    <span class="tech-tag">Database Management</span>
-                    <h3>Simple Movie Database</h3>
-                    <p class="role-badge">Lead Systems Developer <span class="date-tag">| Oct 2025</span></p>
-                    <div class="tools-section"><strong>Tools:</strong> HTML, C#, SQL, MySQLWorkbench, Visual Studio Code</div>
-                    <p>Designed a lightweight database engine that focused on memory managent, specifically using movies as a benchmark. The user has the ability to add, remove and edit movie entries which are then registered in the SQL database.</p>
-                    <a href="https://github.com/Kenpc505/SimpleMDB" target="_blank" class="btn">View Source →</a>
-                </div>
-            </article>
-
-            <article class="project-row">
-                <div class="project-image loading-container">
-                    <div class="spinner"></div>
-                    <video autoplay loop muted playsinline poster="images/vgg3-poster.jpg" onloadeddata="this.parentElement.classList.remove('loading-container')">
-                        <source src="videos/vgg3-demo.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="project-info">
-                    <span class="tech-tag"> C++ / 3D Design / Particle Creation</span>
-                    <h3>Advanced Graphics & AI Systems</h3>
-                    <p class="role-badge">Technical Specialist <span class="date-tag">| March 2024</span></p>
-                    <div class="tools-section"><strong>Tools:</strong> Unreal Engine 5.2, Blender. Niagara Particle System</div>
-                    <ul class="project-features">
-                        <li><strong>VFX:</strong> Procedural fire and electricity effects.</li>
-                        <li><strong>UI:</strong> Created UI Designs and programmed functionality.</li>
-                        <li><strong>AI:</strong> Programmed enemy behaviors to mimic attack and roaming patterns, also worked on state machines.</li>
-                        <li><strong>3D Modeling:</strong> Worked on modeling several 3D objects, as well as multiple textures for different objects made.</li>
-                    </ul>
-                </div>
-            </article>
-
-        </div>
-    </section>
-
-    <section id="links">
-        <h2>Connect With Me!</h2>
-        <div class="link-container">
-            <div class="button-stack">
-                <a class="button button-resume" href="Kenneth_Perez_Resume.pdf" download>
-                    <img class="icon" src="images/icons/email.svg" alt=""> Download Resume
-                </a>
-                <a class="button button-linkedin" href="https://www.linkedin.com/in/kenneth-p%C3%A9rez-camacho-754b19230" target="_blank">
-                    <img class="icon" src="images/icons/linkedin.svg" alt=""> LinkedIn Profile
-                </a>
-                <a class="button button-github" href="https://github.com/Kenpc505" target="_blank">
-                    <img class="icon" src="images/icons/github.svg" alt=""> GitHub Repository
-                </a>
+    <main class="project-list" style="flex: 1;">
+        <article class="project-row">
+            <div class="project-image-container">
+                <video autoplay loop muted playsinline>
+                    <source src="videos/platformer.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-        </div>
-    </section>
+            <div class="project-info">
+                <p class="category">Indie Dev / Management</p>
+                <h2 class="project-title">Memories of Laiden by Schrödinger Studio</h2>
+                <p class="role-date">Level & Audio Designer / Producer / Programmer</p>
+                <div class="tools-bar"><strong>Tools:</strong> Unreal Engine 5.6.1, FL Studio 2026, Adobe Audition</div>
+                <p>Developing a difficulty-based platformer with the Indie Team "Schrödinger Studio."</p>
+            </div>
+        </article>
 
-    <footer>
-        <p>© 2026 Kenneth Pérez Camacho</p>
-    </footer>
+        <article class="project-row">
+            <div class="project-image-container"><img src="images/roguelite.jpg" alt="Roguelite Showcase"></div>
+            <div class="project-info">
+                <p class="category">C++ / 3D Design</p>
+                <h2 class="project-title">Proguelite Systems</h2>
+                <p class="role-date">Technical Specialist | March 2024</p>
+                <div class="tools-bar"><strong>Tools:</strong> Unreal Engine 5.2, Blender, Niagara</div>
+                <p>Implementation of Niagara procedural VFX and AI behavior state machines.</p>
+            </div>
+        </article>
+    </main>
 
-    <button onclick="scrollToTop()" id="backToTop" title="Go to top">↑</button>
+    <footer style="text-align: center; padding: 3rem 0;"><p style="color: var(--text-secondary);">© 2026 Kenneth Pérez Camacho</p></footer>
 
     <script>
-        const mybutton = document.getElementById("backToTop");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        };
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        const btn = document.getElementById('theme-btn');
+        const menu = document.getElementById('theme-menu');
+        btn.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('active'); };
+        window.onclick = () => menu.classList.remove('active');
     </script>
-
 </body>
 </html>
