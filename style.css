@@ -153,3 +153,90 @@ nav {
 	border-radius: 8px;
 	font-weight: bold;
 }
+
+/* --- MOBILE OPTIMIZATION --- */
+
+@media (max-width: 768px) {
+    /* 1. Navigation: Allow items to wrap or scroll if name is long */
+    nav {
+        padding: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .nav-right {
+        gap: 1rem !important;
+    }
+
+    /* 2. Hero Banner: Shrink text so it doesn't break */
+    .hero-content h1 {
+        font-size: 2.2rem !important;
+    }
+
+    /* 3. About Me: Stack the PFP and Text vertically */
+    .about-me-container {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 1.5rem !important;
+        margin: 2rem auto !important;
+    }
+
+    .about-text {
+        padding: 0 1rem;
+    }
+
+    /* 4. Projects: Change side-by-side to vertical stack */
+    .project-row {
+        flex-direction: column !important;
+        height: auto !important; /* Allow height to grow */
+        margin-bottom: 3rem;
+        padding: 0 1rem;
+    }
+
+    .project-image-container {
+        width: 100% !important;
+        height: 250px !important; /* Fixed height for mobile consistency */
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .project-info {
+        width: 100% !important;
+        padding: 1.5rem 0 !important;
+    }
+
+    /* 5. Resume Page: Adjust padding and font size */
+    .resume-container {
+        padding: 2rem 1rem !important;
+        margin: 1rem !important;
+    }
+
+    .resume-container h1 {
+        font-size: 2rem !important;
+    }
+
+    /* Ensure buttons stack or shrink on very small screens */
+    .resume-container div[style*="display: flex"] {
+        flex-direction: column;
+        gap: 0.8rem !important;
+    }
+
+    /* 6. General Fixes */
+    img, video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .project-list {
+        padding: 0 1.5rem !important;
+    }
+}
+
+/* Fix for the theme menu positioning on mobile */
+@media (max-width: 480px) {
+    .theme-menu {
+        right: -50px; /* Adjust so it doesn't go off-screen */
+        width: 150px;
+    }
+}
