@@ -1,80 +1,90 @@
-/* --- 1. CORE VARIABLES --- */
+/* --- BASE THEME VARIABLES --- */
 :root {
 	--bg-color: #0b1120;
-	--card-bg: #111827;
-	--text-primary: #f1f5f9;
-	--text-secondary: #94a3b8;
+	--card-bg: rgba(255, 255, 255, 0.05);
 	--accent: #60a5fa;
-	--tools-bg: #1f2937;
+	--text-primary: #ffffff;
+	--text-secondary: #94a3b8;
 }
 
-/* --- 2. GLOBAL RESET --- */
+/* --- GLOBAL STYLES --- */
 * {
-	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Inter', -apple-system, sans-serif;
 }
 
 body {
 	background-color: var(--bg-color);
 	color: var(--text-primary);
-	font-family: 'Inter', sans-serif;
-	transition: background-color 0.3s ease;
+	transition: background-color 0.4s ease;
+	line-height: 1.6;
 }
 
-/* --- 3. NAVIGATION & BUTTONS --- */
+a {
+	text-decoration: none;
+	color: inherit;
+	transition: 0.3s;
+}
+
+/* --- NAVIGATION --- */
 nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1.2rem 10%;
-	background: var(--bg-color);
+	padding: 1rem 5%;
+	background: rgba(11, 17, 32, 0.8);
+	backdrop-filter: blur(10px);
 	position: sticky;
 	top: 0;
 	z-index: 1000;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.logo a,
-.btn-nav {
-	font-weight: bold;
-	text-decoration: none;
-	color: var(--text-primary);
-	padding: 0.6rem 1rem;
-	border-radius: 8px;
-	transition: 0.3s;
-}
-
-.logo a:hover,
-.btn-nav:hover {
-	background: rgba(255, 255, 255, 0.05);
+.logo a {
+	font-size: 1.5rem;
+	font-weight: 800;
 	color: var(--accent);
 }
 
-.nav-links {
-	display: flex;
-	list-style: none;
-	gap: 1rem;
-	border-left: 1px solid rgba(255, 255, 255, 0.1);
-	padding-left: 1rem;
+.btn-nav {
+	padding: 0.5rem 1rem;
+	border-radius: 6px;
+	font-weight: 500;
 }
 
-/* Theme Menu */
+/* --- SOCIAL ICONS (ENLARGED & ACCESSIBLE) --- */
+.social-icons a {
+	font-size: 1.5rem;
+	padding: 10px;
+	transition: transform 0.2s ease, color 0.2s ease;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-secondary);
+}
+
+.social-icons a:hover {
+	color: var(--accent) !important;
+	transform: scale(1.1);
+}
+
+/* --- THEME MENU --- */
 .theme-switch-wrapper {
 	position: relative;
 }
 
 .theme-menu {
 	position: absolute;
-	top: 50px;
+	top: 100%;
 	right: 0;
-	background: var(--card-bg);
-	border: 1px solid var(--accent);
+	background: #1e293b;
 	border-radius: 8px;
+	padding: 0.5rem;
 	display: none;
 	flex-direction: column;
-	width: 150px;
-	overflow: hidden;
+	gap: 0.5rem;
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 }
 
 .theme-menu.active {
@@ -82,161 +92,176 @@ nav {
 }
 
 .theme-menu button {
-	background: none;
+	background: transparent;
 	border: none;
-	color: var(--text-primary);
-	padding: 10px;
+	color: white;
+	padding: 0.5rem 1rem;
 	cursor: pointer;
 	text-align: left;
+	border-radius: 4px;
 }
 
 .theme-menu button:hover {
 	background: var(--accent);
-	color: #fff;
 }
 
-/* --- 4. PROJECT CARDS (Image Formatting) --- */
+/* --- HERO (TIGHTENED VERTICAL GAP) --- */
+.hero-banner {
+	position: relative;
+	height: 25vh;
+	/* Very compact vertical space */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	margin-bottom: 0;
+}
+
+.banner-image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.banner-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.2;
+}
+
+.hero-content h1 {
+	font-size: 3.5rem;
+	margin-bottom: 0.5rem;
+}
+
+/* --- ABOUT ME (REDUCED SPACING) --- */
+.about-me-container {
+	display: flex;
+	align-items: center;
+	gap: 2.5rem;
+	padding: 0 10% 2rem 10%;
+	max-width: 1200px;
+	margin: -1rem auto 0 auto;
+	/* Pulls content up toward the name */
+}
+
+.profile-pic img {
+	width: 160px;
+	height: 160px;
+	border-radius: 50%;
+	border: 3px solid var(--accent);
+	object-fit: cover;
+}
+
+.about-text h2 {
+	margin-bottom: 0.5rem;
+	color: var(--accent);
+}
+
+/* --- PROJECTS --- */
 .project-list {
-	width: 85%;
-	max-width: 1100px;
-	margin: 4rem auto;
+	padding: 2rem 5%;
 }
 
 .project-row {
 	display: flex;
-	gap: 2.5rem;
-	background: var(--card-bg);
-	border-radius: 12px;
-	padding: 2.5rem;
-	margin-bottom: 2.5rem;
+	gap: 2rem;
+	margin-bottom: 3rem;
+	align-items: center;
 }
 
 .project-image-container {
 	flex: 1;
 	border-radius: 8px;
 	overflow: hidden;
+	background: #000;
 }
 
-.project-image-container video,
-.project-image-container img {
+.project-image-container img,
+.project-image-container video {
 	width: 100%;
 	display: block;
 }
 
 .project-info {
-	flex: 1.5;
+	flex: 1;
+}
+
+.category {
+	color: var(--accent);
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	letter-spacing: 1px;
+	font-weight: 700;
 }
 
 .tools-bar {
-	background: var(--tools-bg);
-	padding: 0.8rem;
-	border-radius: 6px;
 	margin: 1rem 0;
 	font-size: 0.9rem;
-}
-
-.role-date {
-	color: var(--accent);
-	font-weight: bold;
-	text-transform: uppercase;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	padding-bottom: 0.5rem;
-	margin-bottom: 1rem;
+	color: var(--text-secondary);
 }
 
 .btn {
 	display: inline-block;
-	padding: 0.8rem 1.8rem;
+	padding: 0.6rem 1.2rem;
 	background: var(--accent);
-	color: #fff;
-	text-decoration: none;
-	border-radius: 8px;
-	font-weight: bold;
+	color: white;
+	border-radius: 4px;
+	font-weight: 600;
+	margin-top: 1rem;
 }
 
 /* --- MOBILE OPTIMIZATION --- */
-
 @media (max-width: 768px) {
-    /* 1. Navigation: Allow items to wrap or scroll if name is long */
-    nav {
-        padding: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
+	nav {
+		flex-wrap: wrap;
+		justify-content: center;
+		padding: 1rem;
+	}
 
-    .nav-right {
-        gap: 1rem !important;
-    }
+	.nav-right {
+		width: 100%;
+		justify-content: center;
+		margin-top: 1rem;
+		gap: 1rem !important;
+	}
 
-    /* 2. Hero Banner: Shrink text so it doesn't break */
-    .hero-content h1 {
-        font-size: 2.2rem !important;
-    }
+	.hero-banner {
+		height: 20vh;
+	}
 
-    /* 3. About Me: Stack the PFP and Text vertically */
-    .about-me-container {
-        flex-direction: column !important;
-        text-align: center;
-        gap: 1.5rem !important;
-        margin: 2rem auto !important;
-    }
+	.hero-content h1 {
+		font-size: 2.2rem;
+	}
 
-    .about-text {
-        padding: 0 1rem;
-    }
+	.about-me-container {
+		margin-top: 0;
+		padding: 2rem 5%;
+		flex-direction: column;
+		text-align: center;
+		gap: 1.5rem;
+	}
 
-    /* 4. Projects: Change side-by-side to vertical stack */
-    .project-row {
-        flex-direction: column !important;
-        height: auto !important; /* Allow height to grow */
-        margin-bottom: 3rem;
-        padding: 0 1rem;
-    }
+	.project-row {
+		flex-direction: column;
+		margin-bottom: 4rem;
+		gap: 1.5rem;
+	}
 
-    .project-image-container {
-        width: 100% !important;
-        height: 250px !important; /* Fixed height for mobile consistency */
-        border-radius: 8px;
-        overflow: hidden;
-    }
+	.project-image-container,
+	.project-info {
+		width: 100%;
+	}
 
-    .project-info {
-        width: 100% !important;
-        padding: 1.5rem 0 !important;
-    }
+	.social-icons a {
+		font-size: 1.8rem;
+		/* Even larger for mobile thumbs */
+	}
 
-    /* 5. Resume Page: Adjust padding and font size */
-    .resume-container {
-        padding: 2rem 1rem !important;
-        margin: 1rem !important;
-    }
-
-    .resume-container h1 {
-        font-size: 2rem !important;
-    }
-
-    /* Ensure buttons stack or shrink on very small screens */
-    .resume-container div[style*="display: flex"] {
-        flex-direction: column;
-        gap: 0.8rem !important;
-    }
-
-    /* 6. General Fixes */
-    img, video {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .project-list {
-        padding: 0 1.5rem !important;
-    }
-}
-
-/* Fix for the theme menu positioning on mobile */
-@media (max-width: 480px) {
-    .theme-menu {
-        right: -50px; /* Adjust so it doesn't go off-screen */
-        width: 150px;
-    }
+	.resume-container div[style*="display: flex"] {
+		flex-direction: column !important;
+		gap: 1rem !important;
+	}
 }
