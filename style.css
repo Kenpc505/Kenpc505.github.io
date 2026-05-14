@@ -161,21 +161,31 @@ nav {
 	align-items: center;
 }
 
+/* --- UPDATED PROJECT LAYOUT --- */
 .project-image-container {
-	flex: 1;
+	flex: 0 0 auto;
+	/* Do not grow or fill; stay as wide as the content */
+	max-width: 420px;
+	/* Match your logo's width */
+	width: 100%;
+	/* Essential for mobile responsiveness */
 	border-radius: 8px;
 	overflow: hidden;
-	background: #000;
+	background: transparent;
 }
 
-.project-image-container img,
-.project-image-container video {
+.project-image-container img {
 	width: 100%;
+	/* Fill the 420px container */
+	height: auto;
 	display: block;
 }
 
 .project-info {
 	flex: 1;
+	/* The text will now take up all the remaining space */
+	padding-left: 1rem;
+	/* A small, controlled gap between logo and text */
 }
 
 .btn {
