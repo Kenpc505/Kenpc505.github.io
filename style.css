@@ -161,41 +161,81 @@ nav {
 	align-items: center;
 }
 
-/* --- UPDATED PROJECT LAYOUT --- */
-.project-image-container {
-	flex: 0 0 auto;
-	/* Do not grow or fill; stay as wide as the content */
-	max-width: 420px;
-	/* Match your logo's width */
+/* --- PROJECTS (CENTER ALIGNED) --- */
+.project-list {
+	padding: 2rem 5%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* Centers the project rows horizontally on the page */
+}
+
+.project-row {
+	display: flex;
+	gap: 3rem;
+	margin-bottom: 4rem;
+	align-items: flex-start;
+	justify-content: center;
+	/* Ensures content inside the row stays centered */
+	max-width: 1200px;
+	/* Matches the width constraint of your About Me section */
 	width: 100%;
-	/* Essential for mobile responsiveness */
+	/* Allows it to shrink gracefully on smaller screens */
+}
+
+/* Shrink-wraps the container tightly around its specific media size */
+.project-image-container {
+	flex: 0 1 max-content;
+	width: 100%;
 	border-radius: 8px;
 	overflow: hidden;
 	background: transparent;
 }
 
+/* 420px maximum constraint for images */
 .project-image-container img {
+	max-width: 420px;
 	width: 100%;
-	/* Fill the 420px container */
 	height: auto;
 	display: block;
 }
 
-.project-info {
-	flex: 1;
-	/* The text will now take up all the remaining space */
-	padding-left: 1rem;
-	/* A small, controlled gap between logo and text */
+/* 650px maximum constraint for videos */
+.project-image-container video {
+	max-width: 650px;
+	width: 100%;
+	height: auto;
+	display: block;
+	background: #000;
+	border-radius: 8px;
 }
 
+/* Text Section: Flexes to fill space but respects a healthy reading layout */
+.project-info {
+	flex: 1;
+	max-width: 600px;
+	/* Wraps text gracefully so it doesn't span to the screen edge */
+}
+
+/* Base button properties to ensure style continuity across all pages */
 .btn {
 	display: inline-block;
 	padding: 0.6rem 1.2rem;
 	background: var(--accent);
-	color: white;
+	color: white !important;
+	/* Forces text color permanence across themes */
 	border-radius: 4px;
 	font-weight: 600;
-	margin-top: 1rem;
+	margin-top: 1.5rem;
+	/* Standardized spacing above buttons */
+	text-align: center;
+	border: none;
+	cursor: pointer;
+}
+
+.btn:hover {
+	opacity: 0.9;
+	transform: translateY(-1px);
 }
 
 /* --- MOBILE --- */
