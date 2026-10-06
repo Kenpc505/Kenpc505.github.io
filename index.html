@@ -3,57 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="description" content="Portfolio of Kenneth Pérez Camacho, a Puerto Rican game developer and technical designer.">
     <title>Kenneth Pérez Camacho | Portfolio</title>
-    <script>
-        (function() {
-            const palettes = {
-                'default': { bg: '#0b1120', accent: '#60a5fa' },
-                'emerald': { bg: '#022c22', accent: '#10b981' },
-                'ruby': { bg: '#1c0a0a', accent: '#ef4444' },
-                'gold': { bg: '#1a160d', accent: '#fbbf24' },
-                'violet': { bg: '#1e1b4b', accent: '#a78bfa' }
-            };
-            window.applyTheme = function(theme) {
-                const p = palettes[theme] || palettes['default'];
-                document.documentElement.style.setProperty('--bg-color', p.bg);
-                document.documentElement.style.setProperty('--accent', p.accent);
-                localStorage.setItem('selectedTheme', theme);
-                document.querySelectorAll('a').forEach(link => {
-                    const url = new URL(link.href, window.location.href);
-                    if (url.origin === window.location.origin) {
-                        url.searchParams.set('theme', theme);
-                        link.href = url.toString();
-                    }
-                });
-            };
-            const params = new URLSearchParams(window.location.search);
-            const activeTheme = params.get('theme') || localStorage.getItem('selectedTheme') || 'default';
-            window.addEventListener('DOMContentLoaded', () => applyTheme(activeTheme));
-        })();
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<body>
 
-    <nav>
-        <div class="logo"><a href="index.html" class="btn-nav">Kenpc505</a></div>
-        <div class="nav-right" style="display: flex; align-items: center; gap: 1.5rem;">
+    <nav class="site-nav">
+        <a href="index.html" class="logo">Kenpc505</a>
+        <div class="nav-right">
             <div class="theme-switch-wrapper">
-                <button id="theme-btn" class="btn-nav" style="color: var(--accent); background: transparent; border: 1px solid rgba(255,255,255,0.1);"><i class="fas fa-palette"></i></button>
+                <button id="theme-btn" class="btn-nav theme-btn" type="button" aria-label="Change colour theme" aria-expanded="false" aria-controls="theme-menu"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M12 2C6.5 2 2 6.1 2 11.2c0 4.3 3.4 7.8 7.6 7.8h1.6c.8 0 1.3.6 1.3 1.3 0 .4-.1.7-.4 1-.2.3-.4.6-.4 1 0 .8.6 1.4 1.4 1.4C18 23.7 22 19 22 12.6 22 6.6 17.5 2 12 2zM6.5 12.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm3-4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm3 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg></button>
                 <div id="theme-menu" class="theme-menu">
-                    <button onclick="applyTheme('default')">Deep Sea</button>
-                    <button onclick="applyTheme('emerald')">Matrix</button>
-                    <button onclick="applyTheme('ruby')">Crimson</button>
-                    <button onclick="applyTheme('gold')">Luxury</button>
-                    <button onclick="applyTheme('violet')">Cyber</button>
+                    <button type="button" data-theme="default">Deep Sea</button>
+                    <button type="button" data-theme="emerald">Matrix</button>
+                    <button type="button" data-theme="ruby">Crimson</button>
+                    <button type="button" data-theme="gold">Luxury</button>
+                    <button type="button" data-theme="violet">Cyber</button>
                 </div>
             </div>
-            <div class="social-icons" style="display: flex; gap: 1rem;">
-                <a href="https://github.com/Kenpc505" target="_blank" style="color: var(--text-secondary);"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/kenneth-p%C3%A9rez-camacho-754b19230" target="_blank" style="color: var(--text-secondary);"><i class="fa-brands fa-linkedin-in"></i></a>
+            <div class="social-icons">
+                <a href="https://github.com/Kenpc505" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="m8.02742 19.0196c0 .0951-.11129.1712-.25161.1712-.15968.0142-.27097-.0618-.27097-.1712 0-.0952.11129-.1712.25161-.1712.14516-.0143.27097.0618.27097.1712zm-1.50484-.2141c-.03387.0952.0629.2046.20807.2331.1258.0475.27096 0 .3-.0951.02903-.0951-.06291-.2045-.20807-.2473-.12581-.0333-.26613.0142-.3.1093zm2.13871-.0808c-.14032.0333-.2371.1237-.22258.233.01452.0952.14032.157.28548.1237.14033-.0333.2371-.1237.22258-.2188-.01451-.0903-.14516-.1522-.28548-.1379zm3.18391-18.2247c-6.71133 0-11.8452 5.00799-11.8452 11.6045 0 5.2743 3.37742 9.7876 8.20161 11.3761.61936.1094.8371-.2663.8371-.5754 0-.2949-.01452-1.9214-.01452-2.9202 0 0-3.38709.7134-4.09838-1.4172 0 0-.55162-1.384-1.34516-1.7407 0 0-1.10807-.7467.07741-.7324 0 0 1.20484.0951 1.86775 1.227 1.05967 1.8358 2.83548 1.3079 3.52742.994.11129-.761.4258-1.2889.77419-1.6028-2.70484-.2948-5.43387-.6801-5.43387-5.2553 0-1.3078.36774-1.96415 1.14193-2.80119-.1258-.30914-.53709-1.58372.12581-3.22927 1.01129-.30914 3.33871 1.2841 3.33871 1.2841.96774-.26634 2.0081-.40426 3.0387-.40426 1.0307 0 2.071.13792 3.0387.40426 0 0 2.3274-1.59799 3.3387-1.2841.6629 1.6503.2516 2.92013.1258 3.22927.7742.8418 1.2484 1.49809 1.2484 2.80119 0 4.5895-2.85 4.9557-5.5548 5.2553.4451.3758.8226 1.0891.8226 2.2068 0 1.6027-.0146 3.586-.0146 3.9759 0 .3092.2226.6849.8371.5755 4.8388-1.579 8.1194-6.0923 8.1194-11.3666 0-6.59651-5.4435-11.6045-12.1548-11.6045zm-7.14197 16.4032c-.06291.0475-.04839.1569.03387.2473.07742.0761.18871.1094.25161.0475.0629-.0475.04839-.1569-.03387-.2473-.07742-.0761-.18871-.1093-.25161-.0475zm-.52258-.3853c-.03388.0619.01451.138.11129.1855.07741.0476.17419.0333.20806-.0333.03387-.0618-.01452-.1379-.11129-.1854-.09677-.0286-.17419-.0143-.20806.0332zm1.56774 1.6932c-.07742.0618-.04839.2045.0629.2948.11129.1094.25161.1237.31452.0476.0629-.0618.03387-.2045-.06291-.2949-.10645-.1094-.25161-.1236-.31451-.0475zm-.55162-.6992c-.07742.0476-.07742.1713 0 .2806.07742.1094.20807.157.27097.1094.07742-.0618.07742-.1855 0-.2948-.06774-.1094-.19355-.157-.27097-.0952z"/></svg></a>
+                <a href="https://www.linkedin.com/in/kenneth-p%C3%A9rez-camacho-754b19230" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="m22.2857 0h-20.57677c-.942859 0-1.70893.776786-1.70893 1.73036v20.53924c0 .9536.766071 1.7304 1.70893 1.7304h20.57677c.9429 0 1.7143-.7768 1.7143-1.7304v-20.53924c0-.953574-.7714-1.73036-1.7143-1.73036zm-15.03213 20.5714h-3.55714v-11.45354h3.5625v11.45354zm-1.77857-13.01783c-1.14107 0-2.0625-.92678-2.0625-2.0625 0-1.13571.92143-2.0625 2.0625-2.0625 1.13571 0 2.0625.92679 2.0625 2.0625 0 1.14107-.92143 2.0625-2.0625 2.0625zm15.1125 13.01783h-3.5571v-5.5714c0-1.3286-.0268-3.0375-1.8483-3.0375-1.8535 0-2.1375 1.4464-2.1375 2.9411v5.6678h-3.5571v-11.45354h3.4125v1.56424h.0482c.4768-.89996 1.6393-1.84817 3.3697-1.84817 3.6 0 4.2696 2.37317 4.2696 5.45897z"/></svg></a>
             </div>
-            <ul class="nav-links" style="display: flex; list-style: none; gap: 0.5rem; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem;">
+            <ul class="nav-links">
                 <li><a href="projects.html" class="btn-nav">Projects</a></li>
                 <li><a href="resume.html" class="btn-nav">Resume</a></li>
             </ul>
@@ -61,68 +37,62 @@
     </nav>
 
     <header class="hero-banner">
-        <div class="banner-image"><img src="images/banner.jpg" alt="Hero Banner"></div>
-        <div class="hero-content" style="text-align: center;">
-            <h1 style="font-size: 3.5rem;">Kenneth Pérez Camacho</h1>
-            <p style="color: var(--accent); font-weight: bold; font-size: 1.2rem;">Game Developer | Technical Designer | Indie</p>
+        <div class="banner-image"><img src="images/banner.jpg" alt=""></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Kenneth Pérez Camacho</h1>
+            <p class="hero-subtitle">Game Developer | Technical Designer | Indie</p>
         </div>
     </header>
 
-    <section class="about-me-container" style="max-width: 900px; margin: 4rem auto; display: flex; align-items: center; gap: 3rem; padding: 0 2rem;">
-        <div class="profile-pic"><img src="images/pfp.jpg" alt="Profile Picture" style="width: 180px; height: 180px; border-radius: 50%; border: 4px solid var(--accent); object-fit: cover; display: block;"></div>
-        <div class="about-text">
-            <h2 style="color: var(--accent); margin-bottom: 1rem;">About Me!</h2>
-            <p style="color: var(--text-secondary); line-height: 1.6;">Hello World! My name is Kenneth Pérez Camacho, born and raised in Puerto Rico.
-Welcome to my Portfolio page! My name is Kenneth Pérez Camacho, Puerto Rican Junior Developer focused on Technical Design and Audio Production.
-My current focus is to accrue experience in the games industry in order to better myself and my abilities as a game developer.
-My main inspirations for making games are: "Celeste", "Terraria", and "HollowKnight". These specific games were able to inspire me in different manners, but all of them have made me want to create games.</p>
-        </div>
-    </section>
-
-  <section class="project-list">
-        <!-- Project 1: Memories of Ladein -->
-        <article class="project-row">
-            <div class="project-image-container">
-                <img src="images/platformer.png" alt="Memories of Ladein Logo">
+    <main>
+        <section class="about-me-container">
+            <div class="profile-pic"><img src="images/pfp.jpg" alt="Kenneth Pérez Camacho" width="180" height="180"></div>
+            <div class="about-text">
+                <h2>About Me!</h2>
+                <p>Hello World! Welcome to my portfolio page! My name is Kenneth Pérez Camacho, born and raised in Puerto Rico, and I'm a Junior Developer focused on Technical Design and Audio Production.
+                    My current focus is to accrue experience in the games industry in order to better myself and my abilities as a game developer.
+                    My main inspirations for making games are "Celeste", "Terraria" and "Hollow Knight". Each of them inspired me in a different way, but all of them have made me want to create games.</p>
             </div>
-            <div class="project-info">
-                <p class="category">Producer / Technical Designer / Programmer / Composer</p>
-                <h2 class="project-title">Memories of Ladein</h2>
-                <p class="role-date">
-                    <a href="https://schrodinger-studio.itch.io/" target="_blank" class="studio-link">Schrödinger Studio</a> | January 2026 - May 2026
-                </p>
-                <div class="tools-bar"><strong>Tools:</strong> C++, Unreal Engine 5.6.1, Github Desktop</div>
-                
-                <p>Part of the team, specifically as a technical designer, programmer, producer and composer, for this narrative-driven project at <a href="https://schrodinger-studio.itch.io/" target="_blank" class="studio-link">Schrödinger Studio</a>.
-                    I was dedicated to designing levels with a platformer based game, taking into account vertical and horizontal abilities that carry momentum and quick decision making from the player. 
-                    As a producer I was in charge of managing team tasks (using resources such as trello and microsoft excel), managing team deadlines and communication. 
-                    As a programmer I was tasked to work on character ability integration and coherence as well as optimization through various means, level streaming being an example of such.</p>
-                <a href="https://schrodinger-studio.itch.io/memories-of-ladein" target="_blank" class="btn">Play on itch.io</a>
-            </div>
-        </article>
+        </section>
 
-        <!-- Project 2: Roguelite -->
-        <article class="project-row">
-            <div class="project-image-container">
-                <img src="images/roguelite.jpg" alt="Proguelite Systems Showcase">
-            </div>
-            <div class="project-info">
-                <p class="category">Solo Developer / Systems Programmer</p>
-                <h2 class="project-title">Proguelite Systems</h2>
-                <p class="role-date">Independent Project | April 2026 - Ongoing</p>
-                <div class="tools-bar"><strong>Tools:</strong> C++, Unreal Engine 5.6.1, Github Desktop</div>
-                <p>Developing a custom roguelite framework focused on procedural generation and high-density entity management.</p>
-            </div>
-        </article>
-    </section>
+        <section class="project-list">
+            <!-- Project 1: Memories of Ladein -->
+            <article class="project-row">
+                <div class="project-image-container">
+                    <img src="images/platformer.png" alt="Memories of Ladein logo" loading="lazy">
+                </div>
+                <div class="project-info">
+                    <p class="category">Producer / Technical Designer / Programmer / Composer</p>
+                    <h2 class="project-title">Memories of Ladein</h2>
+                    <p class="role-date">
+                        <a href="https://schrodinger-studio.itch.io/" target="_blank" rel="noopener noreferrer" class="studio-link">Schrödinger Studio</a> | January 2026 - June 2026
+                    </p>
+                    <div class="tools-bar"><strong>Tools:</strong> C++, Unreal Engine 5.6.1, Github Desktop</div>
 
-    <footer style="text-align: center; padding: 3rem 0;"><p style="color: var(--text-secondary);">© 2026 Kenneth Pérez Camacho</p></footer>
+                    <p>Part of the team, specifically as a technical designer, programmer, producer and composer, for this narrative-driven project at <a href="https://schrodinger-studio.itch.io/" target="_blank" rel="noopener noreferrer" class="studio-link">Schrödinger Studio</a>.
+                        I was dedicated to designing levels with a platformer based game, taking into account vertical and horizontal abilities that carry momentum and quick decision making from the player.
+                        As a producer I was in charge of managing team tasks (using resources such as Trello and Microsoft Excel), managing team deadlines and communication.
+                        As a programmer I was tasked to work on character ability integration and coherence as well as optimization through various means, level streaming being an example of such.</p>
+                    <a href="https://schrodinger-studio.itch.io/memories-of-ladein" target="_blank" rel="noopener noreferrer" class="btn">Play on itch.io</a>
+                </div>
+            </article>
 
-    <script>
-        const btn = document.getElementById('theme-btn');
-        const menu = document.getElementById('theme-menu');
-        btn.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('active'); };
-        window.onclick = () => menu.classList.remove('active');
-    </script>
+            <!-- Project 2: Roguelite -->
+            <article class="project-row">
+                <div class="project-image-container">
+                    <img src="images/roguelite.jpg" alt="Proguelite Systems showcase" loading="lazy">
+                </div>
+                <div class="project-info">
+                    <p class="category">Solo Developer / Systems Programmer</p>
+                    <h2 class="project-title">Proguelite Systems</h2>
+                    <p class="role-date">Independent Project | April 2026 - Ongoing</p>
+                    <div class="tools-bar"><strong>Tools:</strong> C++, Unreal Engine 5.6.1, Github Desktop</div>
+                    <p>Developing a custom roguelite framework focused on procedural generation and high-density entity management.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer"><p>&copy; 2026 Kenneth Pérez Camacho</p></footer>
 </body>
 </html>

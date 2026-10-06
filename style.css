@@ -1,10 +1,12 @@
 /* --- BASE THEME VARIABLES --- */
+/* --bg-color and --accent are overridden at runtime by script.js (theme switcher). */
 :root {
 	--bg-color: #0b1120;
 	--card-bg: rgba(255, 255, 255, 0.05);
 	--accent: #60a5fa;
 	--text-primary: #ffffff;
 	--text-secondary: #94a3b8;
+	--border-subtle: rgba(255, 255, 255, 0.1);
 }
 
 /* --- GLOBAL STYLES --- */
@@ -12,14 +14,21 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Inter', -apple-system, sans-serif;
 }
 
 body {
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 	background-color: var(--bg-color);
 	color: var(--text-primary);
 	transition: background-color 0.4s ease;
 	line-height: 1.6;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+main {
+	flex: 1;
 }
 
 a {
@@ -28,26 +37,73 @@ a {
 	transition: 0.3s;
 }
 
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+.icon {
+	width: 1em;
+	height: 1em;
+	display: block;
+}
+
 /* --- NAVIGATION --- */
-nav {
+.site-nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 5%;
-	background: rgba(11, 17, 32, 0.8);
+	background: color-mix(in srgb, var(--bg-color) 80%, transparent);
 	backdrop-filter: blur(10px);
 	position: sticky;
 	top: 0;
 	z-index: 1000;
 }
 
-.logo a {
+.logo {
 	font-size: 1.5rem;
 	font-weight: 800;
 	color: var(--accent);
 }
 
-/* --- SOCIAL ICONS (ENLARGED) --- */
+.nav-right {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.nav-links {
+	display: flex;
+	list-style: none;
+	gap: 0.5rem;
+	border-left: 1px solid var(--border-subtle);
+	padding-left: 1rem;
+}
+
+.btn-nav {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.4rem 0.8rem;
+	border-radius: 6px;
+	color: var(--text-primary);
+	font-weight: 600;
+}
+
+.btn-nav:hover,
+.btn-nav[aria-current="page"] {
+	color: var(--accent);
+}
+
+/* --- SOCIAL ICONS --- */
+.social-icons {
+	display: flex;
+	gap: 1rem;
+}
+
 .social-icons a {
 	font-size: 1.5rem;
 	padding: 10px;
@@ -59,7 +115,7 @@ nav {
 }
 
 .social-icons a:hover {
-	color: var(--accent) !important;
+	color: var(--accent);
 	transform: scale(1.1);
 }
 
@@ -79,15 +135,26 @@ nav {
 	position: relative;
 }
 
+.theme-btn {
+	font-size: 1.1rem;
+	color: var(--accent);
+	background: transparent;
+	border: 1px solid var(--border-subtle);
+	cursor: pointer;
+	padding: 0.5rem 0.7rem;
+}
+
 .theme-menu {
 	position: absolute;
-	top: 100%;
+	top: calc(100% + 0.4rem);
 	right: 0;
-	background: #1e293b;
+	background: color-mix(in srgb, var(--bg-color) 70%, #334155);
+	border: 1px solid var(--border-subtle);
 	border-radius: 8px;
 	padding: 0.5rem;
 	display: none;
 	flex-direction: column;
+	min-width: 9rem;
 }
 
 .theme-menu.active {
@@ -97,17 +164,19 @@ nav {
 .theme-menu button {
 	background: transparent;
 	border: none;
+	border-radius: 4px;
 	color: white;
 	padding: 0.5rem 1rem;
 	cursor: pointer;
 	text-align: left;
+	font: inherit;
 }
 
 .theme-menu button:hover {
 	background: var(--accent);
 }
 
-/* --- HERO (TIGHT GAP) --- */
+/* --- HERO --- */
 .hero-banner {
 	position: relative;
 	height: 25vh;
@@ -131,43 +200,63 @@ nav {
 	opacity: 0.2;
 }
 
+.hero-content {
+	text-align: center;
+}
+
+.hero-title {
+	font-size: 3.5rem;
+	line-height: 1.2;
+}
+
+.hero-subtitle {
+	color: var(--accent);
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
 /* --- ABOUT ME --- */
 .about-me-container {
+	max-width: 900px;
+	margin: 4rem auto;
+	padding: 0 2rem;
 	display: flex;
 	align-items: center;
-	gap: 2.5rem;
-	padding: 0 10% 2rem 10%;
-	max-width: 1200px;
-	margin: -1rem auto 0 auto;
+	gap: 3rem;
 }
 
 .profile-pic img {
-	width: 160px;
-	height: 160px;
+	width: 180px;
+	height: 180px;
 	border-radius: 50%;
-	border: 3px solid var(--accent);
+	border: 4px solid var(--accent);
 	object-fit: cover;
+	display: block;
+}
+
+.about-text h2 {
+	color: var(--accent);
+	margin-bottom: 1rem;
+}
+
+.about-text p {
+	color: var(--text-secondary);
+	line-height: 1.6;
 }
 
 /* --- PROJECTS --- */
 .project-list {
 	padding: 2rem 5%;
-}
-
-.project-row {
-	display: flex;
-	gap: 2rem;
-	margin-bottom: 3rem;
-	align-items: center;
-}
-
-/* --- PROJECTS (CENTER ALIGNED) --- */
-.project-list {
-	padding: 2rem 5%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/* Centers the project rows horizontally on the page */
+}
+
+.page-title {
+	font-size: 3rem;
+	margin-bottom: 3rem;
+	text-align: center;
+	line-height: 1.2;
 }
 
 .project-row {
@@ -176,14 +265,11 @@ nav {
 	margin-bottom: 4rem;
 	align-items: flex-start;
 	justify-content: center;
-	/* Ensures content inside the row stays centered */
 	max-width: 1200px;
-	/* Matches the width constraint of your About Me section */
 	width: 100%;
-	/* Allows it to shrink gracefully on smaller screens */
 }
 
-/* Shrink-wraps the container tightly around its specific media size */
+/* Shrink-wraps the container tightly around its media */
 .project-image-container {
 	flex: 0 1 max-content;
 	width: 100%;
@@ -192,7 +278,6 @@ nav {
 	background: transparent;
 }
 
-/* 420px maximum constraint for images */
 .project-image-container img {
 	max-width: 420px;
 	width: 100%;
@@ -200,7 +285,6 @@ nav {
 	display: block;
 }
 
-/* 650px maximum constraint for videos */
 .project-image-container video {
 	max-width: 650px;
 	width: 100%;
@@ -210,24 +294,20 @@ nav {
 	border-radius: 8px;
 }
 
-/* Text Section: Flexes to fill space but respects a healthy reading layout */
 .project-info {
 	flex: 1;
 	max-width: 600px;
-	/* Wraps text gracefully so it doesn't span to the screen edge */
 }
 
-/* Base button properties to ensure style continuity across all pages */
+/* Shared button style */
 .btn {
 	display: inline-block;
 	padding: 0.6rem 1.2rem;
 	background: var(--accent);
-	color: white !important;
-	/* Forces text color permanence across themes */
+	color: white;
 	border-radius: 4px;
 	font-weight: 600;
 	margin-top: 1.5rem;
-	/* Standardized spacing above buttons */
 	text-align: center;
 	border: none;
 	cursor: pointer;
@@ -238,9 +318,83 @@ nav {
 	transform: translateY(-1px);
 }
 
+.btn-secondary {
+	background: var(--border-subtle);
+}
+
+/* --- RESUME --- */
+.resume-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 4rem 2rem;
+}
+
+.resume-container {
+	max-width: 800px;
+	width: 100%;
+	background: var(--card-bg);
+	padding: 4rem;
+	border-radius: 12px;
+	text-align: center;
+}
+
+.resume-container .page-title {
+	margin-bottom: 0.5rem;
+}
+
+.resume-subtitle {
+	color: var(--accent);
+	font-weight: bold;
+	margin-bottom: 2rem;
+}
+
+.resume-actions {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.resume-actions .btn {
+	padding: 12px 24px;
+	border-radius: 6px;
+	margin-top: 0;
+}
+
+.resume-section {
+	text-align: left;
+	margin-top: 3rem;
+}
+
+.resume-section h2 {
+	color: var(--accent);
+	border-bottom: 1px solid var(--border-subtle);
+	padding-bottom: 0.5rem;
+}
+
+.resume-entry {
+	margin-top: 1.5rem;
+}
+
+.resume-meta {
+	color: var(--text-secondary);
+}
+
+.resume-entry p + p {
+	margin-top: 0.5rem;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+	text-align: center;
+	padding: 3rem 0;
+	color: var(--text-secondary);
+}
+
 /* --- MOBILE --- */
 @media (max-width: 768px) {
-	nav {
+	.site-nav {
 		flex-wrap: wrap;
 		justify-content: center;
 	}
@@ -249,18 +403,23 @@ nav {
 		width: 100%;
 		justify-content: center;
 		margin-top: 1rem;
-		gap: 1rem !important;
+		gap: 1rem;
 	}
 
 	.hero-banner {
 		height: 20vh;
 	}
 
+	.hero-title {
+		font-size: 2.4rem;
+	}
+
 	.about-me-container {
-		margin-top: 0;
-		padding: 2rem 5%;
+		margin: 2rem auto;
+		padding: 0 5%;
 		flex-direction: column;
 		text-align: center;
+		gap: 1.5rem;
 	}
 
 	.project-row {
@@ -275,5 +434,19 @@ nav {
 
 	.social-icons a {
 		font-size: 1.8rem;
+	}
+
+	.resume-container {
+		padding: 2.5rem 1.5rem;
+	}
+}
+
+/* Respect visitors who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition: none !important;
+		animation: none !important;
 	}
 }
