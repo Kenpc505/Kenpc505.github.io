@@ -7,6 +7,20 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="description" content="Portfolio of Kenneth Pérez Camacho, a Puerto Rican game developer and technical designer.">
     <title>Kenneth Pérez Camacho | Portfolio</title>
+    <meta name="theme-color" content="#0b1120">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kenneth Pérez Camacho">
+    <meta property="og:title" content="Kenneth Pérez Camacho | Portfolio">
+    <meta property="og:description" content="Portfolio of Kenneth Pérez Camacho, a Puerto Rican game developer and technical designer.">
+    <meta property="og:url" content="https://kenpc505.github.io/">
+    <meta property="og:image" content="https://kenpc505.github.io/images/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Kenneth Pérez Camacho, Game Developer and Technical Designer">
+    <meta name="twitter:card" content="summary_large_image">
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,7 +28,7 @@
 
     <nav class="site-nav">
         <a href="index.html" class="logo">Kenpc505</a>
-        <div class="nav-right">
+        <div class="nav-actions">
             <div class="theme-switch-wrapper">
                 <button id="theme-btn" class="btn-nav theme-btn" type="button" aria-label="Change colour theme" aria-expanded="false" aria-controls="theme-menu"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M12 2C6.5 2 2 6.1 2 11.2c0 4.3 3.4 7.8 7.6 7.8h1.6c.8 0 1.3.6 1.3 1.3 0 .4-.1.7-.4 1-.2.3-.4.6-.4 1 0 .8.6 1.4 1.4 1.4C18 23.7 22 19 22 12.6 22 6.6 17.5 2 12 2zM6.5 12.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm3-4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm3 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg></button>
                 <div id="theme-menu" class="theme-menu">
@@ -25,15 +39,20 @@
                     <button type="button" data-theme="violet">Cyber</button>
                 </div>
             </div>
+            <button id="nav-toggle" class="btn-nav nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel"><span class="burger" aria-hidden="true"></span></button>
+        </div>
+        <div id="nav-panel" class="nav-right">
             <div class="social-icons">
                 <a href="https://github.com/Kenpc505" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="m8.02742 19.0196c0 .0951-.11129.1712-.25161.1712-.15968.0142-.27097-.0618-.27097-.1712 0-.0952.11129-.1712.25161-.1712.14516-.0143.27097.0618.27097.1712zm-1.50484-.2141c-.03387.0952.0629.2046.20807.2331.1258.0475.27096 0 .3-.0951.02903-.0951-.06291-.2045-.20807-.2473-.12581-.0333-.26613.0142-.3.1093zm2.13871-.0808c-.14032.0333-.2371.1237-.22258.233.01452.0952.14032.157.28548.1237.14033-.0333.2371-.1237.22258-.2188-.01451-.0903-.14516-.1522-.28548-.1379zm3.18391-18.2247c-6.71133 0-11.8452 5.00799-11.8452 11.6045 0 5.2743 3.37742 9.7876 8.20161 11.3761.61936.1094.8371-.2663.8371-.5754 0-.2949-.01452-1.9214-.01452-2.9202 0 0-3.38709.7134-4.09838-1.4172 0 0-.55162-1.384-1.34516-1.7407 0 0-1.10807-.7467.07741-.7324 0 0 1.20484.0951 1.86775 1.227 1.05967 1.8358 2.83548 1.3079 3.52742.994.11129-.761.4258-1.2889.77419-1.6028-2.70484-.2948-5.43387-.6801-5.43387-5.2553 0-1.3078.36774-1.96415 1.14193-2.80119-.1258-.30914-.53709-1.58372.12581-3.22927 1.01129-.30914 3.33871 1.2841 3.33871 1.2841.96774-.26634 2.0081-.40426 3.0387-.40426 1.0307 0 2.071.13792 3.0387.40426 0 0 2.3274-1.59799 3.3387-1.2841.6629 1.6503.2516 2.92013.1258 3.22927.7742.8418 1.2484 1.49809 1.2484 2.80119 0 4.5895-2.85 4.9557-5.5548 5.2553.4451.3758.8226 1.0891.8226 2.2068 0 1.6027-.0146 3.586-.0146 3.9759 0 .3092.2226.6849.8371.5755 4.8388-1.579 8.1194-6.0923 8.1194-11.3666 0-6.59651-5.4435-11.6045-12.1548-11.6045zm-7.14197 16.4032c-.06291.0475-.04839.1569.03387.2473.07742.0761.18871.1094.25161.0475.0629-.0475.04839-.1569-.03387-.2473-.07742-.0761-.18871-.1093-.25161-.0475zm-.52258-.3853c-.03388.0619.01451.138.11129.1855.07741.0476.17419.0333.20806-.0333.03387-.0618-.01452-.1379-.11129-.1854-.09677-.0286-.17419-.0143-.20806.0332zm1.56774 1.6932c-.07742.0618-.04839.2045.0629.2948.11129.1094.25161.1237.31452.0476.0629-.0618.03387-.2045-.06291-.2949-.10645-.1094-.25161-.1236-.31451-.0475zm-.55162-.6992c-.07742.0476-.07742.1713 0 .2806.07742.1094.20807.157.27097.1094.07742-.0618.07742-.1855 0-.2948-.06774-.1094-.19355-.157-.27097-.0952z"/></svg></a>
                 <a href="https://www.linkedin.com/in/kenneth-p%C3%A9rez-camacho-754b19230" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="m22.2857 0h-20.57677c-.942859 0-1.70893.776786-1.70893 1.73036v20.53924c0 .9536.766071 1.7304 1.70893 1.7304h20.57677c.9429 0 1.7143-.7768 1.7143-1.7304v-20.53924c0-.953574-.7714-1.73036-1.7143-1.73036zm-15.03213 20.5714h-3.55714v-11.45354h3.5625v11.45354zm-1.77857-13.01783c-1.14107 0-2.0625-.92678-2.0625-2.0625 0-1.13571.92143-2.0625 2.0625-2.0625 1.13571 0 2.0625.92679 2.0625 2.0625 0 1.14107-.92143 2.0625-2.0625 2.0625zm15.1125 13.01783h-3.5571v-5.5714c0-1.3286-.0268-3.0375-1.8483-3.0375-1.8535 0-2.1375 1.4464-2.1375 2.9411v5.6678h-3.5571v-11.45354h3.4125v1.56424h.0482c.4768-.89996 1.6393-1.84817 3.3697-1.84817 3.6 0 4.2696 2.37317 4.2696 5.45897z"/></svg></a>
+                <button type="button" class="copy-email" data-user="kpcamacho5" data-domain="gmail.com" aria-label="Copy email address"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="m21.6 2h-19.2c-1.32 0-2.388 1.08-2.388 2.4l-.012 14.4c0 1.32 1.08 2.4 2.4 2.4h19.2c1.32 0 2.4-1.08 2.4-2.4v-14.4c0-1.32-1.08-2.4-2.4-2.4zm0 4.8-9.6 6-9.6-6v-2.4l9.6 6 9.6-6z"/></svg></button>
             </div>
             <ul class="nav-links">
                 <li><a href="projects.html" class="btn-nav">Projects</a></li>
                 <li><a href="resume.html" class="btn-nav">Resume</a></li>
             </ul>
         </div>
+        <div class="xp-bar" aria-hidden="true"><span></span></div>
     </nav>
 
     <header class="hero-banner">
@@ -41,6 +60,7 @@
         <div class="hero-content">
             <h1 class="hero-title">Kenneth Pérez Camacho</h1>
             <p class="hero-subtitle">Game Developer | Technical Designer | Indie</p>
+            <a href="play.html" class="btn btn-play"><span aria-hidden="true">&#9654;</span> Play Me</a>
         </div>
     </header>
 
@@ -55,44 +75,90 @@
             </div>
         </section>
 
+        <section class="inventory" aria-labelledby="inventory-title">
+            <h2 id="inventory-title" class="section-title"><span class="level-tag">Inventory</span>Skills &amp; Tools</h2>
+            <ul class="inventory-grid">
+                <li class="slot" tabindex="0">
+                    <svg class="slot-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 0a12 12 0 1012 12A12 12 0 0012 0zm0 23.52A11.52 11.52 0 1123.52 12 11.52 11.52 0 0112 23.52zm7.13-9.791c-.206.997-1.126 3.557-4.06 4.942l-1.179-1.325-1.988 2a7.338 7.338 0 01-5.804-2.978 2.859 2.859 0 00.65.123c.326.006.678-.114.678-.66v-5.394a.89.89 0 00-1.116-.89c-.92.212-1.656 2.509-1.656 2.509a7.304 7.304 0 012.528-5.597 7.408 7.408 0 013.73-1.721c-1.006.573-1.57 1.507-1.57 2.29 0 1.262.76 1.109.984.923v7.28a1.157 1.157 0 00.148.256 1.075 1.075 0 00.88.445c.76 0 1.747-.868 1.747-.868V9.172c0-.6-.452-1.324-.905-1.572 0 0 .838-.149 1.484.346a5.537 5.537 0 01.387-.425c1.508-1.48 2.929-1.902 4.112-2.112 0 0-2.151 1.69-2.151 3.96 0 1.687.043 5.801.043 5.801.799.771 1.986-.342 3.059-1.441Z"/></svg>
+                    <span class="slot-name">Unreal Engine</span>
+                    <span class="slot-tip" role="tooltip"><strong>Unreal Engine</strong><em>Intermediate &middot; 4 years</em>Memories of Ladein, Proguelite Systems and Niagara VFX work.</span>
+                </li>
+                <li class="slot" tabindex="0">
+                    <svg class="slot-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z"/></svg>
+                    <span class="slot-name">Unity</span>
+                    <span class="slot-tip" role="tooltip"><strong>Unity</strong><em>Intermediate &middot; 2 years</em>Built a full inventory system (pickup, storage, interaction).</span>
+                </li>
+                <li class="slot" tabindex="0">
+                    <img class="slot-icon" src="images/icons/cpp.svg" alt="" aria-hidden="true">
+                    <span class="slot-name">C++</span>
+                    <span class="slot-tip" role="tooltip"><strong>C++</strong><em>Intermediate</em>Gameplay and ability systems in UE5, OS batch-system simulation.</span>
+                </li>
+                <li class="slot" tabindex="0">
+                    <img class="slot-icon" src="images/icons/csharp.svg" alt="" aria-hidden="true">
+                    <span class="slot-name">C#</span>
+                    <span class="slot-tip" role="tooltip"><strong>C#</strong><em>Intermediate</em>Unity gameplay systems and the Simple Movie Database project.</span>
+                </li>
+                <li class="slot" tabindex="0">
+                    <svg class="slot-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    <span class="slot-name">GitHub</span>
+                    <span class="slot-tip" role="tooltip"><strong>GitHub</strong><em>Advanced</em>Source control and data management for team and solo projects.</span>
+                </li>
+                <li class="slot" tabindex="0">
+                    <svg class="slot-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.5 2.5 6.8v10.4l9.5 5.3 9.5-5.3V6.8L12 1.5zm0 2.3 6.9 3.8L12 11.4 5.1 7.6 12 3.8zM4.5 9.3l6.5 3.6v7.2l-6.5-3.6V9.3zm8.5 10.8v-7.2l6.5-3.6v7.2L13 20.1z"/></svg>
+                    <span class="slot-name">Blender</span>
+                    <span class="slot-tip" role="tooltip"><strong>Blender</strong><em>Intermediate</em>3D modeling, texturing, UV mapping and rigging.</span>
+                </li>
+                <li class="slot" tabindex="0">
+                    <svg class="slot-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C7 2 4 3.6 4 5.5v13C4 20.4 7 22 12 22s8-1.6 8-3.5v-13C20 3.6 17 2 12 2zm0 2c3.9 0 6 1.1 6 1.5S15.9 7 12 7 6 5.9 6 5.5 8.1 4 12 4zm6 14.5c0 .4-2.1 1.5-6 1.5s-6-1.1-6-1.5v-2.3c1.5.8 3.6 1.3 6 1.3s4.5-.5 6-1.3v2.3zm0-4.5c0 .4-2.1 1.5-6 1.5s-6-1.1-6-1.5v-2.3c1.5.8 3.6 1.3 6 1.3s4.5-.5 6-1.3V14zm0-4.5c0 .4-2.1 1.5-6 1.5S6 9.9 6 9.5V7.7C7.5 8.5 9.6 9 12 9s4.5-.5 6-1.3v1.8z"/></svg>
+                    <span class="slot-name">SQL</span>
+                    <span class="slot-tip" role="tooltip"><strong>SQL</strong><em>Intermediate</em>Relational database design for the Simple Movie Database.</span>
+                </li>
+                <li class="slot" tabindex="0">
+                    <svg class="slot-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 2.5v13.3a3.5 3.5 0 1 1-2-3.2V7.2L9 9.1v8.7A3.5 3.5 0 1 1 7 14.6V5.6l13-3.1z"/></svg>
+                    <span class="slot-name">Audio</span>
+                    <span class="slot-tip" role="tooltip"><strong>Audio</strong><em>Composer</em>Composed and integrated the audio for Memories of Ladein.</span>
+                </li>
+            </ul>
+            <p class="inventory-extra">Also equipped: Blueprints, Java, Python, HTML</p>
+        </section>
+
         <section class="project-list">
-            <!-- Project 1: Memories of Ladein -->
-            <article class="project-row">
-                <div class="project-image-container">
+        <!-- Level 01: Memories of Ladein -->
+        <article class="project-row">
+            <div class="project-image-container project-media">
                     <img src="images/platformer.png" alt="Memories of Ladein logo" loading="lazy">
                 </div>
-                <div class="project-info">
-                    <p class="category">Producer / Technical Designer / Programmer / Composer</p>
-                    <h2 class="project-title">Memories of Ladein</h2>
-                    <p class="role-date">
-                        <a href="https://schrodinger-studio.itch.io/" target="_blank" rel="noopener noreferrer" class="studio-link">Schrödinger Studio</a> | January 2026 - June 2026
-                    </p>
-                    <div class="tools-bar"><strong>Tools:</strong> C++, Unreal Engine 5.6.1, Github Desktop</div>
-
-                    <p>Part of the team, specifically as a technical designer, programmer, producer and composer, for this narrative-driven project at <a href="https://schrodinger-studio.itch.io/" target="_blank" rel="noopener noreferrer" class="studio-link">Schrödinger Studio</a>.
-                        I was dedicated to designing levels with a platformer based game, taking into account vertical and horizontal abilities that carry momentum and quick decision making from the player.
-                        As a producer I was in charge of managing team tasks (using resources such as Trello and Microsoft Excel), managing team deadlines and communication.
-                        As a programmer I was tasked to work on character ability integration and coherence as well as optimization through various means, level streaming being an example of such.</p>
-                    <a href="https://schrodinger-studio.itch.io/memories-of-ladein" target="_blank" rel="noopener noreferrer" class="btn">Play on itch.io</a>
-                </div>
-            </article>
-
-            <!-- Project 2: Roguelite -->
-            <article class="project-row">
-                <div class="project-image-container">
+            <div class="project-info">
+                <p class="level-tag"><span>Level 01</span><span class="status status-done">Completed</span></p>
+                <p class="category">Producer / Technical Designer / Programmer / Composer</p>
+                <h2 class="project-title">Memories of Ladein</h2>
+                <p class="role-date"><a href="https://schrodinger-studio.itch.io/" target="_blank" rel="noopener noreferrer" class="studio-link">Schrödinger Studio</a> | January 2026 - June 2026</p>
+                <ul class="tool-chips" aria-label="Tools"><li>C++</li><li>Unreal Engine 5.6.1</li><li>GitHub Desktop</li></ul>
+                <p>Part of the team, specifically as a technical designer, programmer, producer and composer, for this narrative-driven project at <a href="https://schrodinger-studio.itch.io/" target="_blank" rel="noopener noreferrer" class="studio-link">Schrödinger Studio</a>.
+                    I was dedicated to designing levels with a platformer based game, taking into account vertical and horizontal abilities that carry momentum and quick decision making from the player.
+                    As a producer I was in charge of managing team tasks (using resources such as Trello and Microsoft Excel), managing team deadlines and communication.
+                    As a programmer I was tasked to work on character ability integration and coherence as well as optimization through various means, level streaming being an example of such.</p>
+                <a href="https://schrodinger-studio.itch.io/memories-of-ladein" target="_blank" rel="noopener noreferrer" class="btn">Play on itch.io</a>
+            </div>
+        </article>
+        <!-- Level 02: Proguelite Systems -->
+        <article class="project-row">
+            <div class="project-image-container project-media">
                     <img src="images/roguelite.jpg" alt="Proguelite Systems showcase" loading="lazy">
                 </div>
-                <div class="project-info">
-                    <p class="category">Solo Developer / Systems Programmer</p>
-                    <h2 class="project-title">Proguelite Systems</h2>
-                    <p class="role-date">Independent Project | April 2026 - Ongoing</p>
-                    <div class="tools-bar"><strong>Tools:</strong> C++, Unreal Engine 5.6.1, Github Desktop</div>
-                    <p>Developing a custom roguelite framework focused on procedural generation and high-density entity management.</p>
-                </div>
-            </article>
+            <div class="project-info">
+                <p class="level-tag"><span>Level 02</span><span class="status status-live">In Progress</span></p>
+                <p class="category">Solo Developer / Systems Programmer</p>
+                <h2 class="project-title">Proguelite Systems</h2>
+                <p class="role-date">Independent Project | April 2026 - Ongoing</p>
+                <ul class="tool-chips" aria-label="Tools"><li>C++</li><li>Unreal Engine 5.6.1</li><li>GitHub Desktop</li></ul>
+                <p>Developing a custom roguelite framework focused on procedural generation and high-density entity management.</p>
+            </div>
+        </article>
         </section>
     </main>
 
     <footer class="site-footer"><p>&copy; 2026 Kenneth Pérez Camacho</p></footer>
+    <div class="toast-region" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>
